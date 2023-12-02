@@ -1,0 +1,765 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  list-style-type: none;
+  text-decoration: none;
+}
+@font-face {
+  font-family: "icomoon";
+  src: url("fonts/icomoon.eot?d1v5fv");
+  src: url("fonts/icomoon.eot?d1v5fv#iefix") format("embedded-opentype"),
+    url("fonts/icomoon.ttf?d1v5fv") format("truetype"),
+    url("fonts/icomoon.woff?d1v5fv") format("woff"),
+    url("fonts/icomoon.svg?d1v5fv#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+$white: #fff;
+$black: #000000;
+$headtx: #212d32;
+$maintx: #376474;
+$lighttx: #20414d;
+$green: #38cea8;
+.icon-facebook:before {
+  content: "\e900";
+}
+.icon-behance:before {
+  content: "\e901";
+}
+.icon-instagram:before {
+  content: "\e902";
+}
+
+.icon-twitter:before {
+  content: "\e905";
+}
+.icon-twitter,
+.icon-instagram,
+.icon-behance,
+.icon-facebook {
+  &:hover {
+    &:before {
+      filter: brightness(1) contrast(2) drop-shadow(0.2mm 0.2mm $green);
+    }
+  }
+}
+@mixin flex($ai, $dir) {
+  display: flex;
+  align-items: $ai;
+  flex-direction: $dir;
+}
+@mixin Roboto($fw, $fs, $lh) {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: $fw;
+  font-size: $fs;
+  line-height: $lh;
+}
+
+.text {
+  @include Roboto(400, 1rem, 24px);
+  &--main {
+    color: $maintx;
+  }
+  &--head {
+    color: $headtx;
+  }
+  &--light {
+    color: $lighttx;
+  }
+}
+.btn {
+  @include Roboto(400, 16px, 24px);
+  border-radius: 24px;
+  border: 2px solid;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 4px 1px $green;
+  }
+  &--green {
+    border-color: $green;
+    color: $green;
+    background-color: $white;
+    &:hover {
+      background-color: $green;
+      color: $white;
+    }
+  }
+  &--fill {
+    border-color: $green;
+    background-color: $green;
+    color: $white;
+  }
+  &--white {
+    border-color: $white;
+    color: $white;
+    background-color: transparent;
+    &:hover {
+      background-color: $white;
+      color: $green;
+      box-shadow: 1px 1px 4px 1px $white;
+    }
+  }
+}
+
+.title {
+  @include Roboto(initial, 48px, 56px);
+}
+.soc-med {
+  @include flex(center, row);
+
+  &--big > span {
+    padding: 24px 12px;
+    font-size: 24px;
+    color: #32505b;
+  }
+  &--small > span {
+    padding: 12px;
+    font-size: 16px;
+    color: $lighttx;
+  }
+}
+
+.head {
+  &__menu {
+    @include flex(center, row);
+  }
+  &__menu-item {
+    padding: 24px 12px;
+    & a {
+      padding: 24px 12px;
+    }
+  }
+  &__menu-item:hover {
+    background: rgba(56, 206, 168, 0.4);
+  }
+  &__menu-btn {
+    display: none;
+  }
+  &__menu-btn a {
+    background: #f1fff8;
+    position: absolute;
+    left: 10px;
+    top: 6px;
+    font-size: 24px;
+    color: $headtx;
+    padding: 4px 8px;
+  }
+  &__menu-btn a:hover {
+    background-color: rgba(56, 206, 168, 0.4);
+    color: black;
+  }
+  &__logo {
+    @include flex(center, row);
+    justify-content: space-between;
+    background: #eafeec;
+    padding: 0 5vw;
+    cursor: pointer;
+    svg {
+      vertical-align: sub;
+    }
+  }
+  &__logo-name {
+    @include Roboto(400, 24px, 32px);
+    color: $black;
+  }
+  &__nav {
+    position: relative;
+    @include flex(center, row);
+    justify-content: space-between;
+    background: #f1fff8;
+    padding: 0 5vw;
+  }
+
+  &__contacts > a {
+    margin-right: 15px;
+  }
+}
+
+.home {
+  background: url(./img/women.png) center/cover no-repeat;
+  padding: 6vw 0 12vw 8vw;
+}
+.call-to-buy {
+  max-width: 35vw;
+  text-align: center;
+
+  &__title1 {
+    font-weight: 500;
+    color: #32505b;
+  }
+  &__title2 {
+    font-weight: 700;
+    color: $maintx;
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+}
+.btn-box {
+  @include flex(center, row);
+  justify-content: center;
+  margin-top: 16px;
+
+  &__btn {
+    border-radius: 32px;
+    padding: 16px 32px;
+    color: $white;
+    @include Roboto(400, 16px, 24px);
+
+    &--red {
+      background: #f72a2a;
+      margin-right: 18px;
+      &:hover {
+        box-shadow: 1px 1px 4px 1px #f72a2a;
+      }
+    }
+    &--green {
+      background: $green;
+      &:hover {
+        box-shadow: 1px 1px 4px 1px $green;
+      }
+    }
+  }
+}
+.how-it-works {
+  @include flex(center, column);
+  padding: 0 5vw;
+  margin-top: 8vw;
+  &__title {
+    font-weight: 500;
+    color: $headtx;
+    text-align: center;
+  }
+  &__disc {
+    @include Roboto(400, 24px, 32px);
+    text-align: center;
+    margin: 16px 0 50px 0;
+    color: $maintx;
+  }
+  &__btn {
+    margin: 50px 0 25px;
+    padding: 8px 32px;
+  }
+}
+.container {
+  display: grid;
+  grid-template-columns: 50px 1fr 50px 1fr 50px 1fr;
+  gap: 2%;
+  &__number {
+    @include Roboto(700, 48px, 56px);
+    color: $green;
+    text-align: right;
+  }
+}
+.list {
+  &__name {
+    @include Roboto(700, 20px, 32px);
+    color: $maintx;
+  }
+  p {
+    margin: 16px 0;
+  }
+}
+
+.recipes {
+  @include flex(center, row);
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  background: url(./img/bg-recipes.png) center/cover no-repeat;
+  min-height: 485px;
+
+  img {
+    border-radius: 10px;
+    max-width: 100%;
+  }
+  &__box {
+    border-radius: 10px;
+    background: $white;
+    max-width: 352px;
+    padding: 16px;
+    border-bottom: 8px solid $green;
+    cursor: pointer;
+    &:hover {
+      box-shadow: 2px 2px 6px $green, -1px -1px 9px $green;
+    }
+  }
+  &__name {
+    @include Roboto(400, 24px, 32px);
+    color: $maintx;
+  }
+  &__text {
+    margin-bottom: 16px;
+  }
+  &__simple {
+    text-align: center;
+    margin-top: 24px;
+  }
+}
+.reviews {
+  padding: 0 5vw;
+  margin-bottom: 64px;
+  &__story {
+    @include flex(center, row);
+    justify-content: space-between;
+    margin: 24px 0 64px;
+    > img {
+      border-radius: 10px;
+      border: 1px solid $green;
+      max-width: 320px;
+    }
+  }
+  &__title {
+    font-weight: 400;
+    color: $green;
+  }
+  &__brief {
+    @include Roboto(400, 24px, 32px);
+    color: $headtx;
+    margin: 8px 0 24px;
+  }
+
+  &__opinions-fst-line {
+    @include flex(normal, row);
+    gap: 10vw;
+    padding-top: 24px;
+  }
+  &__opinions-scnd-line {
+    @include flex(normal, row);
+    justify-content: flex-end;
+    gap: 10vw;
+    padding-bottom: 24px;
+  }
+  &__arrows {
+    @include flex(center, row);
+    justify-content: space-between;
+    svg {
+      padding: 15px 0;
+    }
+  }
+
+  hr {
+    height: 4px;
+    background: $green;
+    opacity: 0.35;
+    border-radius: 100px;
+    width: 100%;
+  }
+}
+.block {
+  @include flex(flex-start, row);
+  max-width: 35vw;
+  column-gap: 4vw;
+  img {
+    border-radius: 100px;
+    width: 75%;
+    max-width: 155px;
+    align-self: center;
+  }
+  &__name {
+    @include Roboto(500, 18px, 24px);
+    color: $black;
+    margin: 16px 0 8px;
+  }
+  &__lost-kg {
+    @include Roboto(400, 16px, 24px);
+    color: $green;
+  }
+}
+.icon-Star-fill:before {
+  content: "\e906";
+  color: #ed8a19;
+}
+.icon-star:before {
+  content: "\e904";
+  color: #ed8a19;
+}
+
+.icon-Star-fill {
+  font-size: 24px;
+}
+.icon-star {
+  font-size: 24px;
+}
+.program {
+  background: rgba(56, 206, 168, 0.12);
+  padding: 0 5vw;
+  &__title {
+    font-weight: 400;
+    color: $headtx;
+    text-align: center;
+  }
+  &__brief {
+    @include Roboto(400, 24px, 32px);
+    color: $headtx;
+    text-align: center;
+    margin: 16px 0 32px;
+  }
+  &__items {
+    @include flex(center, row);
+    gap: 60px;
+  }
+
+  &__items-box {
+    @include flex(center, column);
+  }
+  &__name {
+    @include Roboto(500, 22px, 24px);
+    color: $headtx;
+    margin: 16px 0 24px;
+  }
+  &__text {
+    text-align: center;
+  }
+}
+.offer {
+  margin: 70px 5vw;
+  text-align: center;
+  vertical-align: middle;
+  border-spacing: 0;
+  border-collapse: collapse;
+
+  &__head {
+    height: 84px;
+  }
+  &__last {
+    height: 104px;
+  }
+  &__main {
+    height: 48px;
+  }
+  &__btn {
+    padding: 8px 32px;
+  }
+  td {
+    width: 25vw;
+    @include Roboto(400, 16px, 24px);
+    color: $headtx;
+    border: 1px solid rgba(99, 119, 221, 0.5);
+  }
+  td:first-child {
+    @include Roboto(400, 24px, 32px);
+    color: $headtx;
+  }
+  td:nth-child(2) {
+    border-right: 1px solid #ff001f;
+  }
+  td:nth-child(3) {
+    border-right: 1px solid #ff001f;
+  }
+  .red-border-top {
+    border-top: 1px solid #ff001f;
+  }
+  .red-border-bottom {
+    border-bottom: 1px solid #ff001f;
+  }
+  &__name {
+    @include Roboto(400, 24px, 32px);
+    color: $headtx;
+  }
+  &__price {
+    @include Roboto(300, 50px, 56px);
+    color: $headtx;
+  }
+}
+.question {
+  padding: 70px 5vw;
+  display: grid;
+  grid-template-columns: 65px 1fr 65px 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  &__ellipse {
+    position: relative;
+  }
+  &__sumbol {
+    position: absolute;
+    top: 20px;
+    left: 22px;
+    @include Roboto(700, 40px, 24px);
+    color: $white;
+  }
+  &__name {
+    @include Roboto(400, 24px, 32px);
+    margin: 8px 0;
+  }
+}
+.subscribe {
+  background: url(./img/mixed-fruits.png) center/cover no-repeat;
+  padding: 6vw 10vw;
+
+  &__call-to {
+    background: $white;
+    border-radius: 10px;
+    max-width: 30vw;
+    padding: 5vw 6vw 2vw;
+  }
+  &__name {
+    @include Roboto(400, 24px, 32px);
+    color: $green;
+  }
+  &__today {
+    @include Roboto(400, 12px, 18px);
+    color: $headtx;
+    margin: 32px 0;
+  }
+  &__input {
+    background: #f0e9e9;
+    border: 1px solid #888282;
+    border-radius: 100px;
+    width: 90%;
+    padding: 8px 16px;
+  }
+  &__btn {
+    padding: 8px 32px;
+    margin-top: 16px;
+  }
+  &__ps {
+    @include Roboto(400, 9px, 24px);
+    color: $headtx;
+  }
+}
+.coaches {
+  padding: 72px 8vw;
+  &__title {
+    text-align: center;
+    font-weight: 500;
+    color: $headtx;
+  }
+  &__social {
+    @include flex(center, row);
+    justify-content: space-between;
+  }
+  &__brief {
+    text-align: center;
+    margin: 16px 0 24px;
+    @include Roboto(400, 24px, 32px);
+    color: $lighttx;
+  }
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 80px;
+    margin-bottom: 64px;
+  }
+  &__name {
+    @include Roboto(500, 18px, 24px);
+    color: $green;
+  }
+  &__prof {
+    margin: 8px 0;
+    @include Roboto(700, 12px, 18px);
+    color: $headtx;
+  }
+}
+.join {
+  @include flex(center, row);
+  background: $green;
+  padding: 6vw;
+  justify-content: center;
+  &__brief {
+    @include Roboto(700, 24px, 32px);
+    color: $white;
+    margin-right: 16px;
+  }
+  &__btn {
+    padding: 8px 16px;
+  }
+}
+.foot {
+  @include flex(center, row);
+  padding: 2vw 20vw;
+  justify-content: space-between;
+
+  div {
+    width: 15vw;
+  }
+  &__massage {
+    @include Roboto(400, 12px, 14px);
+  }
+
+  &__btn {
+    padding: 8px 16px;
+    margin-top: 16px;
+  }
+  &__nav {
+    @include flex(center, row);
+    gap: 5vw;
+  }
+  &__nav-item {
+    @include Roboto(400, 16px, 35px);
+    color: $headtx;
+  }
+  &__nav-item:first-child {
+    margin-top: 24px;
+  }
+}
+.massage {
+  &--head {
+    color: $headtx;
+  }
+  &--black {
+    color: $black;
+    margin: 32px 0 8px;
+  }
+  &--main {
+    color: $maintx;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .title {
+    font-size: 36px;
+  }
+  .head {
+    &__contacts {
+      @include flex(flex-end, column);
+    }
+  }
+  .reviews__opinions-scnd-line {
+    display: none;
+  }
+
+  .offer {
+    margin: 70px 1vw;
+    &__price {
+      font-size: 32px;
+    }
+    &__btn {
+      padding: 4px;
+      font-size: 14px;
+    }
+    &__name {
+      font-size: 20px;
+    }
+    td:first-child {
+      font-size: 16px;
+      line-height: 16px;
+    }
+  }
+  .subscribe__ps {
+    display: block;
+    text-align: right;
+  }
+  .coaches {
+    &__container {
+      column-gap: 1vw;
+    }
+
+    &__social {
+      flex-direction: column;
+    }
+  }
+  .join {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 850px) {
+  .head {
+    &__menu {
+      display: none;
+    }
+    &__menu-btn {
+      display: block;
+    }
+  }
+
+  .head__menu {
+    flex-direction: column;
+    position: absolute;
+    background: rgba(241, 255, 248, 0.9);
+    width: 95vw;
+    top: 48px;
+
+    .head__menu-item {
+      padding: 8px;
+    }
+  }
+  .home {
+    background: #f1f3f2;
+    padding: 2vw 5vw;
+  }
+  .call-to-buy {
+    max-width: 100vw;
+  }
+  .btn-box {
+    &__btn {
+      padding: 8px 10px;
+    }
+  }
+  .reviews__story,
+  .block {
+    flex-direction: column;
+  }
+  .foot {
+    padding: 2vw;
+    flex-direction: column;
+    div {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+}
+@media screen and (max-width: 720px) {
+  .container {
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  .recipes {
+    background: none;
+  }
+  .program__items {
+    flex-direction: column;
+  }
+  .question {
+    grid-template-columns: 65px 1fr;
+  }
+  .subscribe {
+    &__call-to {
+      max-width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 391px) {
+  .soc-med--big > span {
+    padding: 16px 8px;
+  }
+  .head__logo-name {
+    font-size: 20px;
+  }
+  .reviews {
+    img {
+      max-width: 95%;
+    }
+  }
+  .recipes__box {
+    max-width: 85vw;
+  }
+  .icon-star,
+  .icon-Star-fill {
+    font-size: 20px;
+  }
+  .offer {
+    display: none;
+  }
+  .soc-med--small > span {
+    padding: 8px;
+  }
+}
